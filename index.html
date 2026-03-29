@@ -1,584 +1,523 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renata Limpezas</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #f5efe6;
-  --bg2: #ede3d6;
-  --card: #faf6f0;
-  --dark: #2c1f14;
-  --brown: #7a4f2d;
-  --brown2: #a0693e;
-  --accent: #c8845a;
-  --accent2: #e0a882;
-  --text: #3d2b1a;
-  --muted: #9a7f6a;
-  --white: #fdfaf6;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renata Limpeza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
+  <style>
+    /* =====================
+       CORES E VARIÁVEIS
+    ===================== */
+    :root {
+      --bege:    #f5efe6;
+      --escuro:  #2c1f14;
+      --laranja: #c8845a;
+      --muted:   #9a7f6a;
+      --card:    #faf6f0;
+    }
 
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-}
+    /* =====================
+       BASE
+    ===================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 56px;
-  background: rgba(245,239,230,0.9);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(122,79,45,0.12);
-}
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.55rem;
-  color: var(--dark);
-  letter-spacing: 0.02em;
-}
-.logo span { color: var(--accent); font-style: italic; }
-.nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a {
-  text-decoration: none; font-size: 0.82rem; font-weight: 500;
-  color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase;
-  transition: color .25s;
-}
-.nav-links a:hover { color: var(--brown); }
-.nav-wa {
-  background: var(--accent) !important; color: white !important;
-  padding: 10px 24px; border-radius: 100px;
-}
-.nav-wa:hover { background: var(--dark) !important; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bege);
+      color: var(--escuro);
+    }
 
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex; align-items: center;
-  padding: 100px 56px 80px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg-circle {
-  position: absolute;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, var(--accent2) 0%, transparent 70%);
-  border-radius: 50%;
-  right: -120px; top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.35;
-  pointer-events: none;
-}
-.hero-bg-circle2 {
-  position: absolute;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, var(--brown2) 0%, transparent 70%);
-  border-radius: 50%;
-  left: -60px; bottom: 60px;
-  opacity: 0.15;
-  pointer-events: none;
-}
-.hero-content {
-  max-width: 620px;
-  position: relative; z-index: 1;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--card);
-  border: 1px solid rgba(200,132,90,0.3);
-  padding: 8px 18px; border-radius: 100px;
-  font-size: 0.78rem; font-weight: 600;
-  color: var(--accent); letter-spacing: 0.08em;
-  text-transform: uppercase; margin-bottom: 32px;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 5.5vw, 5rem);
-  line-height: 1.1; font-weight: 700;
-  color: var(--dark); margin-bottom: 24px;
-}
-.hero h1 em { color: var(--accent); font-style: italic; }
-.hero p {
-  font-size: 1.05rem; line-height: 1.8;
-  color: var(--muted); font-weight: 300;
-  max-width: 480px; margin-bottom: 44px;
-}
-.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
-.btn-main {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--dark); color: var(--white);
-  text-decoration: none; padding: 16px 34px;
-  border-radius: 100px; font-size: 0.88rem; font-weight: 600;
-  transition: all .3s; letter-spacing: 0.03em;
-}
-.btn-main:hover { background: var(--accent); transform: translateY(-2px); }
-.btn-ghost {
-  display: inline-flex; align-items: center; gap: 10px;
-  border: 1.5px solid var(--accent2); color: var(--brown);
-  text-decoration: none; padding: 16px 34px;
-  border-radius: 100px; font-size: 0.88rem; font-weight: 600;
-  transition: all .3s;
-}
-.btn-ghost:hover { background: var(--accent); color: white; border-color: var(--accent); transform: translateY(-2px); }
+    /* =====================
+       NAVEGAÇÃO (topo)
+    ===================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(245, 239, 230, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200, 132, 90, 0.2);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.hero-stats {
-  display: flex; gap: 0;
-  background: var(--card);
-  border: 1px solid rgba(122,79,45,0.12);
-  border-radius: 20px; overflow: hidden;
-  width: fit-content;
-}
-.stat {
-  padding: 22px 36px; text-align: center;
-  border-right: 1px solid rgba(122,79,45,0.1);
-}
-.stat:last-child { border-right: none; }
-.stat-n {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 700;
-  color: var(--accent); line-height: 1;
-}
-.stat-l { font-size: 0.72rem; font-weight: 500; color: var(--muted); margin-top: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--escuro);
+    }
+    .logo span { color: var(--laranja); font-style: italic; }
 
-.hero-right {
-  position: absolute; right: 56px; top: 50%; transform: translateY(-50%);
-  z-index: 1;
-}
-.hero-card-float {
-  background: var(--card);
-  border: 1px solid rgba(122,79,45,0.15);
-  border-radius: 28px;
-  padding: 48px 40px;
-  text-align: center;
-  width: 300px;
-  box-shadow: 0 30px 80px rgba(44,31,20,0.12);
-  animation: bob 5s ease-in-out infinite;
-}
-@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
-.hero-emoji { font-size: 5rem; display:block; margin-bottom: 16px; }
-.hero-card-float h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem; color: var(--dark); margin-bottom: 8px;
-}
-.hero-card-float p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-.mini-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
-.mini-tag {
-  background: var(--bg2); color: var(--brown);
-  font-size: 0.7rem; font-weight: 600; padding: 5px 12px;
-  border-radius: 100px; letter-spacing: 0.05em;
-}
+    .nav-btn {
+      background: var(--laranja);
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .nav-btn:hover { background: var(--escuro); }
 
-/* ── SERVIÇOS ── */
-.sec { padding: 100px 56px; }
-.sec-label {
-  font-size: 0.75rem; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 14px;
-  display: flex; align-items: center; gap: 10px;
-}
-.sec-label::after { content:''; flex:1; max-width:40px; height:1.5px; background:var(--accent); border-radius:2px; }
-.sec-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  font-weight: 700; color: var(--dark);
-  line-height: 1.2; margin-bottom: 56px;
-}
-.sec-title span { color: var(--accent); font-style: italic; }
+    /* =====================
+       HERO (seção principal)
+    ===================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.svc {
-  background: var(--card);
-  border: 1px solid rgba(122,79,45,0.1);
-  border-radius: 20px; padding: 36px 28px;
-  transition: all .35s;
-  position: relative; overflow: hidden;
-}
-.svc::before {
-  content:''; position:absolute;
-  bottom:0; left:0; right:0; height:3px;
-  background: var(--accent);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .4s ease;
-}
-.svc:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(44,31,20,0.1); }
-.svc:hover::before { transform: scaleX(1); }
-.svc-ico { font-size: 2.4rem; margin-bottom: 20px; display:block; }
-.svc h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem; color: var(--dark); margin-bottom: 10px;
-}
-.svc p { font-size: 0.85rem; line-height: 1.7; color: var(--muted); font-weight: 300; }
+    .hero-tag {
+      background: var(--card);
+      border: 1px solid rgba(200,132,90,0.3);
+      color: var(--laranja);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
 
-/* ── PREÇOS ── */
-.sec-pricing { background: var(--dark); }
-.sec-pricing .sec-label { color: var(--accent2); }
-.sec-pricing .sec-label::after { background: var(--accent2); }
-.sec-pricing .sec-title { color: var(--white); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--laranja); font-style: italic; }
 
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 980px;
-}
-.p-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 24px; padding: 40px 32px;
-  transition: all .3s; position: relative;
-}
-.p-card:hover:not(.p-featured) {
-  border-color: rgba(200,132,90,0.4);
-  transform: translateY(-4px);
-}
-.p-featured {
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: scale(1.04);
-}
-.p-pop {
-  position: absolute; top:-13px; left:50%; transform:translateX(-50%);
-  background: var(--dark); color: var(--accent2);
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; padding: 5px 18px; border-radius: 100px;
-  white-space: nowrap;
-}
-.p-label {
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--accent2); margin-bottom: 8px;
-}
-.p-featured .p-label { color: rgba(255,255,255,0.75); }
-.p-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem; color: white; margin-bottom: 24px;
-}
-.p-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem; font-weight: 700;
-  color: var(--accent2); line-height: 1; margin-bottom: 4px;
-}
-.p-featured .p-price { color: white; }
-.p-per { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-bottom: 28px; }
-.p-featured .p-per { color: rgba(255,255,255,0.65); }
-.p-list { list-style:none; margin-bottom: 32px; }
-.p-list li {
-  font-size: 0.84rem; font-weight: 300;
-  color: rgba(255,255,255,0.65);
-  padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-  display:flex; align-items:center; gap:10px;
-}
-.p-featured .p-list li { color: rgba(255,255,255,0.9); border-bottom-color: rgba(255,255,255,0.15); }
-.p-list li::before { content:'✓'; color: var(--accent2); font-weight:700; flex-shrink:0; }
-.p-featured .p-list li::before { color: white; }
-.p-btn {
-  display: block; text-align:center; text-decoration:none;
-  padding: 14px 24px; border-radius: 100px;
-  font-size: 0.84rem; font-weight: 600;
-  border: 1.5px solid rgba(200,132,90,0.4);
-  color: var(--accent2); transition: all .3s;
-}
-.p-btn:hover { background: var(--accent); border-color: var(--accent); color:white; }
-.p-featured .p-btn { background: var(--dark); border-color: var(--dark); color: white; }
-.p-featured .p-btn:hover { background: rgba(0,0,0,0.4); }
-.p-note {
-  margin-top: 48px; text-align:center;
-  font-size: 0.84rem; color: rgba(255,255,255,0.35);
-  font-style: italic;
-}
+    .hero p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 500px;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
 
-/* ── POR QUÊ ── */
-.sec-why { background: var(--bg2); }
-.why-wrap {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: center;
-}
-.why-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-}
-.why-card {
-  background: var(--card);
-  border: 1px solid rgba(122,79,45,0.1);
-  border-radius: 18px; padding: 28px 22px;
-  transition: all .3s;
-}
-.why-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(44,31,20,0.1); border-color: var(--accent2); }
-.why-ico { font-size: 1.8rem; margin-bottom: 12px; display:block; }
-.why-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem; color: var(--dark); margin-bottom: 6px;
-}
-.why-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.65; font-weight:300; }
-.why-left p.desc {
-  font-size: 0.95rem; line-height:1.8; color: var(--muted); font-weight:300;
-  margin: 20px 0 36px;
-}
+    /* Botão principal */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--escuro);
+      color: white;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn:hover { background: var(--laranja); transform: translateY(-2px); }
 
-/* ── REVIEWS ── */
-.reviews-grid {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
-}
-.rev {
-  background: var(--card);
-  border: 1px solid rgba(122,79,45,0.1);
-  border-radius: 20px; padding: 32px 28px;
-}
-.rev-stars { color: #d4943a; font-size: 0.9rem; margin-bottom: 16px; }
-.rev-text {
-  font-size: 0.9rem; line-height:1.75; color: var(--text);
-  font-style: italic; font-weight:300; margin-bottom: 20px;
-}
-.rev-name { font-size: 0.78rem; font-weight:600; color: var(--accent); letter-spacing:0.06em; text-transform: uppercase; }
+    /* Estatísticas embaixo do hero */
+    .stats {
+      display: flex;
+      gap: 0;
+      margin-top: 60px;
+      background: var(--card);
+      border: 1px solid rgba(200,132,90,0.15);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .stat {
+      padding: 20px 40px;
+      text-align: center;
+      border-right: 1px solid rgba(200,132,90,0.15);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--laranja);
+    }
+    .stat-l {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
 
-/* ── CTA ── */
-.sec-cta {
-  background: var(--accent);
-  padding: 100px 56px;
-  text-align: center;
-  position: relative; overflow:hidden;
-}
-.sec-cta::before {
-  content:'';
-  position: absolute; inset:0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.cta-inner { position:relative; z-index:1; }
-.cta-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.2);
-  color: white; font-size:0.75rem; font-weight:600;
-  letter-spacing:0.14em; text-transform:uppercase;
-  padding: 7px 20px; border-radius:100px; margin-bottom: 24px;
-}
-.sec-cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem,4.5vw,3.5rem); color:white; font-weight:700;
-  line-height:1.15; margin-bottom:16px;
-}
-.sec-cta p { color: rgba(255,255,255,0.8); font-size:1rem; margin-bottom:44px; font-weight:300; }
-.btn-wa {
-  display: inline-flex; align-items:center; gap:12px;
-  background: var(--dark); color:white;
-  text-decoration:none; padding: 18px 42px;
-  border-radius:100px; font-size:0.95rem; font-weight:600;
-  transition: all .3s; box-shadow: 0 8px 30px rgba(44,31,20,0.35);
-}
-.btn-wa:hover { background: white; color: var(--accent); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(44,31,20,0.25); }
-.btn-wa svg { width:22px; height:22px; fill:currentColor; }
+    /* =====================
+       SEÇÕES (estrutura geral)
+    ===================== */
+    section {
+      padding: 90px 40px;
+    }
 
-/* ── FOOTER ── */
-footer {
-  background: var(--dark); padding: 48px 56px;
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:20px;
-  border-top: 1px solid rgba(200,132,90,0.15);
-}
-.f-logo {
-  font-family: 'Playfair Display', serif;
-  font-size:1.3rem; color:white;
-}
-.f-logo span { color:var(--accent); font-style:italic; }
-.f-copy { font-size:0.78rem; color:rgba(255,255,255,0.25); font-weight:300; }
-.f-links { display:flex; gap:24px; }
-.f-links a { color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.78rem; transition:color .25s; }
-.f-links a:hover { color:var(--accent2); }
+    .sec-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-bottom: 12px;
+    }
 
-/* ── FADE ── */
-.fade { opacity:0; transform:translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-.fade.on { opacity:1; transform:none; }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+    .sec-title span { color: var(--laranja); font-style: italic; }
 
-/* ── MOBILE ── */
-@media(max-width:900px){
-  nav { padding:16px 24px; }
-  .nav-links { display:none; }
-  .hero { flex-direction:column; padding:100px 24px 60px; min-height:auto; }
-  .hero-right { position:static; transform:none; margin-top:40px; }
-  .hero-card-float { width:100%; animation:none; }
-  .hero-stats { flex-direction:column; gap:0; width:100%; }
-  .stat { border-right:none; border-bottom:1px solid rgba(122,79,45,0.1); }
-  .sec { padding:72px 24px; }
-  .services-grid, .pricing-grid, .reviews-grid { grid-template-columns:1fr; }
-  .why-wrap { grid-template-columns:1fr; gap:40px; }
-  .p-featured { transform:none; }
-  .sec-cta { padding:72px 24px; }
-  footer { padding:36px 24px; flex-direction:column; text-align:center; }
-  .f-links { justify-content:center; }
-}
-</style>
+    /* =====================
+       SERVIÇOS
+    ===================== */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(200,132,90,0.12);
+      border-radius: 20px;
+      padding: 32px 26px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(44,31,20,0.1);
+    }
+
+    .card-ico { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    /* =====================
+       PREÇOS
+    ===================== */
+    #valores { background: var(--escuro); }
+    #valores .sec-label { color: #e0a882; }
+    #valores .sec-title { color: white; }
+
+    .grid-3-pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 960px;
+    }
+
+    .p-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 36px 28px;
+      position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .p-card:hover { border-color: rgba(200,132,90,0.5); transform: translateY(-4px); }
+
+    /* Card destaque */
+    .p-card.destaque {
+      background: var(--laranja);
+      border-color: var(--laranja);
+    }
+    .p-card.destaque .p-preco { color: white; }
+    .p-card.destaque .p-per,
+    .p-card.destaque .p-list li { color: rgba(255,255,255,0.85); }
+
+    .p-selo {
+      position: absolute;
+      top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--escuro);
+      color: #e0a882;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 16px; border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .p-nome {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: white; margin-bottom: 20px;
+    }
+    .p-preco {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem; font-weight: 700;
+      color: #e0a882; line-height: 1;
+    }
+    .p-per { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+
+    .p-list { list-style: none; margin-bottom: 28px; }
+    .p-list li {
+      font-size: 0.84rem; font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .p-list li::before { content: '✓'; color: #e0a882; font-weight: 700; }
+
+    .p-btn {
+      display: block; text-align: center; text-decoration: none;
+      padding: 13px; border-radius: 100px;
+      font-size: 0.85rem; font-weight: 600;
+      border: 1.5px solid rgba(200,132,90,0.4);
+      color: #e0a882; transition: all 0.3s;
+    }
+    .p-btn:hover { background: var(--laranja); border-color: var(--laranja); color: white; }
+    .p-card.destaque .p-btn { background: var(--escuro); border-color: var(--escuro); color: white; }
+
+    .p-nota {
+      margin-top: 40px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* =====================
+       POR QUÊ ME ESCOLHER
+    ===================== */
+    #porque { background: #ede3d6; }
+
+    .porque-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .porque-texto p {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.8;
+      font-weight: 300; margin: 16px 0 32px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .motivo {
+      background: var(--card);
+      border: 1px solid rgba(200,132,90,0.12);
+      border-radius: 16px;
+      padding: 24px 20px;
+      transition: all 0.3s;
+    }
+    .motivo:hover { transform: translateY(-4px); border-color: rgba(200,132,90,0.4); }
+    .motivo-ico { font-size: 1.6rem; margin-bottom: 10px; display: block; }
+    .motivo h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 6px; }
+    .motivo p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    /* =====================
+       CTA (chamada final)
+    ===================== */
+    #cta {
+      background: var(--laranja);
+      text-align: center;
+      padding: 90px 40px;
+    }
+
+    #cta .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: white; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 100px; margin-bottom: 20px;
+    }
+
+    #cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: white; margin-bottom: 14px;
+    }
+
+    #cta p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 40px; font-weight: 300; }
+
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--escuro); color: white;
+      text-decoration: none; padding: 18px 44px;
+      border-radius: 100px; font-size: 0.95rem; font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-wa:hover { background: white; color: var(--laranja); transform: translateY(-3px); }
+    .btn-wa svg { width: 22px; height: 22px; fill: currentColor; }
+
+    /* =====================
+       RODAPÉ
+    ===================== */
+    footer {
+      background: var(--escuro);
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid rgba(200,132,90,0.15);
+    }
+    footer .logo { font-size: 1.2rem; }
+    .f-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+    .f-links { display: flex; gap: 20px; }
+    .f-links a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.78rem; transition: color 0.3s; }
+    .f-links a:hover { color: #e0a882; }
+
+    /* =====================
+       MOBILE
+    ===================== */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      section { padding: 70px 20px; }
+      .grid-3, .grid-3-pricing, .porque-wrap { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+      .stats { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(200,132,90,0.15); }
+      footer { flex-direction: column; text-align: center; }
+      .f-links { justify-content: center; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Renata<span> Limpeza</span></div>
-  <div class="nav-links">
-    <a href="#servicos">Serviços</a>
-    <a href="#valores">Valores</a>
-    <a href="#avaliacoes">Avaliações</a>
-    <a href="https://wa.me/5512992224658" class="nav-wa">WhatsApp</a>
-  </div>
-</nav>
+  <!-- ===== NAVEGAÇÃO ===== -->
+  <nav>
+    <div class="logo">Renata<span> Limpeza</span></div>
+    <a href="https://wa.me/5512992224658" class="nav-btn">📱 WhatsApp</a>
+  </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-circle"></div>
-  <div class="hero-bg-circle2"></div>
-  <div class="hero-content">
-    <div class="hero-badge">Limpezas</div>
-    <h1>Sua casa sempre <em>limpa</em> e cheirosa</h1>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-tag">🏡 Limpeza Residencial Profissional</div>
+    <h1>Sua casa sempre<br><em>limpa e cheirosa</em></h1>
     <p>Cuidado, capricho e atenção em cada cantinho. Você aproveita a vida — eu cuido da limpeza.</p>
-    <div class="hero-btns">
-      <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Gostaria%20de%20solicitar%20um%20orçamento." class="btn-main">💬 Pedir Orçamento</a>
-      <a href="#servicos" class="btn-ghost">Ver serviços →</a>
-    </div>
-    <div class="hero-stats">
+    <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." class="btn">💬 Pedir Orçamento</a>
+    <div class="stats">
       <div class="stat"><div class="stat-n">5★</div><div class="stat-l">Avaliação</div></div>
       <div class="stat"><div class="stat-n">+50</div><div class="stat-l">Clientes</div></div>
       <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Satisfação</div></div>
     </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-card-float">
-      <span class="hero-emoji">🧹</span>
-      <h3>Profissional e de confiança</h3>
-      <p>Pontual, caprichosa e com atenção a cada detalhe da sua casa.</p>
-      <div class="mini-tags">
-        <span class="mini-tag">🌿 Produtos seguros</span>
-        <span class="mini-tag">⏰ Pontual</span>
-        <span class="mini-tag">💚 Confiável</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- SERVIÇOS -->
-<section class="sec" id="servicos">
-  <div class="fade">
+  <!-- ===== SERVIÇOS ===== -->
+  <section id="servicos">
     <p class="sec-label">O que ofereço</p>
     <h2 class="sec-title">Serviços feitos com <span>muito carinho</span></h2>
-  </div>
-  <div class="services-grid fade">
-    <div class="svc"><span class="svc-ico">🧹</span><h3>Limpeza Geral</h3><p>Limpeza completa de sala, quartos, cozinha e banheiros com atenção total.</p></div>
-    <div class="svc"><span class="svc-ico">✨</span><h3>Limpeza Fina</h3><p>Rodapés, cima de armários, frestas e superfícies que exigem cuidado extra.</p></div>
-    <div class="svc"><span class="svc-ico">🚿</span><h3>Banheiros e Cozinha</h3><p>Higienização profunda com produtos adequados para eliminar gordura e fungos.</p></div>
-    <div class="svc"><span class="svc-ico">🪟</span><h3>Vidros e Janelas</h3><p>Vidros internos e externos brilhando, deixando sua casa mais iluminada.</p></div>
-    <div class="svc"><span class="svc-ico">🗂️</span><h3>Organização</h3><p>Armários e espaços organizados para um ambiente mais funcional e agradável.</p></div>
-    <div class="svc"><span class="svc-ico">📅</span><h3>Visitas Semanais</h3><p>Manutenção regular semanal ou quinzenal para sua casa sempre em ordem.</p></div>
-  </div>
-</section>
+    <div class="grid-3">
+      <div class="card"><span class="card-ico">🧹</span><h3>Limpeza Geral</h3><p>Sala, quartos, cozinha e banheiros com atenção total a cada detalhe.</p></div>
+      <div class="card"><span class="card-ico">✨</span><h3>Limpeza Fina</h3><p>Rodapés, cima de armários e superfícies que exigem cuidado extra.</p></div>
+      <div class="card"><span class="card-ico">🚿</span><h3>Banheiros e Cozinha</h3><p>Higienização profunda para eliminar gordura, fungos e bactérias.</p></div>
+      <div class="card"><span class="card-ico">🪟</span><h3>Vidros e Janelas</h3><p>Vidros internos e externos brilhando, deixando sua casa mais iluminada.</p></div>
+      <div class="card"><span class="card-ico">🗂️</span><h3>Organização</h3><p>Armários e espaços organizados para um ambiente mais agradável.</p></div>
+      <div class="card"><span class="card-ico">📅</span><h3>Visitas Semanais</h3><p>Manutenção regular semanal ou quinzenal para sua casa sempre em ordem.</p></div>
+    </div>
+  </section>
 
-<!-- PREÇOS -->
-<section class="sec sec-pricing" id="valores">
-  <div class="fade">
+  <!-- ===== PREÇOS ===== -->
+  <section id="valores">
     <p class="sec-label">Investimento</p>
     <h2 class="sec-title">Valores <span>acessíveis</span> e transparentes</h2>
-  </div>
-  <div class="pricing-grid fade">
-    <div class="p-card">
-      <p class="p-label">Básico</p>
-      <h3 class="p-name">Diária Simples</h3>
-      <div class="p-price">R$67</div>
-      <p class="p-per">por diária · até 6 horas</p>
-      <ul class="p-list">
-        <li>Até 2 quartos</li>
-        <li>1 banheiro completo</li>
-        <li>Sala e cozinha</li>
-        <li>Varredura e limpeza geral</li>
-      </ul>
-      <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Tenho%20interesse%20na%20diária%20simples." class="p-btn">Contratar</a>
-    </div>
-    <div class="p-card p-featured">
-      <span class="p-pop">⭐ Mais Pedido</span>
-      <p class="p-label">Completo</p>
-      <h3 class="p-name">Limpeza Completa</h3>
-      <div class="p-price">R$67</div>
-      <p class="p-per">por diária · até 8 horas</p>
-      <ul class="p-list">
-        <li>Casa completa</li>
-        <li>Todos os banheiros</li>
-        <li>Vidros e janelas</li>
-        <li>Varanda e área de serviço</li>
-        <li>Rodapés e detalhes</li>
-      </ul>
-      <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Tenho%20interesse%20na%20limpeza%20completa." class="p-btn">Contratar</a>
-    </div>
-    <div class="p-card">
-      <p class="p-label">Mensal</p>
-      <h3 class="p-name">Plano Mensal</h3>
-      <div class="p-price">R$67</div>
-      <p class="p-per">4 visitas por mês</p>
-      <ul class="p-list">
-        <li>Frequência semanal</li>
-        <li>Prioridade no agendamento</li>
-        <li>Limpeza completa padrão</li>
-        <li>Economia garantida</li>
-      </ul>
-      <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Tenho%20interesse%20no%20plano%20mensal." class="p-btn">Contratar</a>
-    </div>
-  </div>
-  <p class="p-note fade">💬 Preços podem variar conforme tamanho e condição do imóvel. Me chama para um orçamento personalizado!</p>
-</section>
+    <div class="grid-3-pricing">
 
-<!-- POR QUÊ -->
-<section class="sec sec-why">
-  <div class="why-wrap">
-    <div class="why-left fade">
-      <p class="sec-label">Por que me escolher</p>
-      <h2 class="sec-title">Confiança e <span>capricho</span> em cada visita</h2>
-      <p class="desc">Trabalho com dedicação, pontualidade e respeito pela sua casa e pela sua família. Cada ambiente recebe atenção personalizada para o melhor resultado.</p>
-      <a href="https://wa.me/5512992224658" class="btn-main">Falar no WhatsApp</a>
+      <div class="p-card">
+        <p class="p-nome">Diária Simples</p>
+        <div class="p-preco">R$150</div>
+        <p class="p-per">por diária · até 6 horas</p>
+        <ul class="p-list">
+          <li>Até 2 quartos</li>
+          <li>1 banheiro completo</li>
+          <li>Sala e cozinha</li>
+          <li>Varredura e limpeza geral</li>
+        </ul>
+        <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Quero%20a%20diária%20simples." class="p-btn">Contratar</a>
+      </div>
+
+      <div class="p-card destaque">
+        <span class="p-selo">⭐ Mais Pedido</span>
+        <p class="p-nome">Limpeza Completa</p>
+        <div class="p-preco">R$220</div>
+        <p class="p-per">por diária · até 8 horas</p>
+        <ul class="p-list">
+          <li>Casa completa</li>
+          <li>Todos os banheiros</li>
+          <li>Vidros e janelas</li>
+          <li>Varanda e área de serviço</li>
+          <li>Rodapés e detalhes</li>
+        </ul>
+        <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Quero%20a%20limpeza%20completa." class="p-btn">Contratar</a>
+      </div>
+
+      <div class="p-card">
+        <p class="p-nome">Plano Mensal</p>
+        <div class="p-preco">R$350</div>
+        <p class="p-per">4 visitas por mês</p>
+        <ul class="p-list">
+          <li>Frequência semanal</li>
+          <li>Prioridade no agendamento</li>
+          <li>Limpeza completa padrão</li>
+          <li>Economia garantida</li>
+        </ul>
+        <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Quero%20o%20plano%20mensal." class="p-btn">Contratar</a>
+      </div>
+
     </div>
-    <div class="why-grid fade">
-      <div class="why-card"><span class="why-ico">⏰</span><h4>Pontualidade</h4><p>Respeito seu tempo e sempre cumpro os horários combinados.</p></div>
-      <div class="why-card"><span class="why-ico">🛡️</span><h4>Confiança</h4><p>Trabalho com discrição e respeito em cada cantinho da sua casa.</p></div>
-      <div class="why-card"><span class="why-ico">🧴</span><h4>Produtos Seguros</h4><p>Materiais de qualidade, seguros para crianças e animais de estimação.</p></div>
-      <div class="why-card"><span class="why-ico">💛</span><h4>Capricho</h4><p>Cuido como se fosse minha própria casa — cada detalhe importa.</p></div>
+    <p class="p-nota">💬 Preços podem variar conforme tamanho do imóvel. Me chama para um orçamento personalizado!</p>
+  </section>
+
+  <!-- ===== POR QUÊ ME ESCOLHER ===== -->
+  <section id="porque">
+    <div class="porque-wrap">
+      <div class="porque-texto">
+        <p class="sec-label">Por que me escolher</p>
+        <h2 class="sec-title">Confiança e <span>capricho</span> em cada visita</h2>
+        <p>Trabalho com dedicação, pontualidade e respeito pela sua casa e família. Cada ambiente recebe atenção personalizada para o melhor resultado.</p>
+        <a href="https://wa.me/5512992224658" class="btn">Falar no WhatsApp</a>
+      </div>
+      <div class="grid-2">
+        <div class="motivo"><span class="motivo-ico">⏰</span><h4>Pontualidade</h4><p>Sempre cumpro os horários combinados.</p></div>
+        <div class="motivo"><span class="motivo-ico">🛡️</span><h4>Confiança</h4><p>Discrição e respeito em cada cantinho.</p></div>
+        <div class="motivo"><span class="motivo-ico">🧴</span><h4>Produtos Seguros</h4><p>Seguros para crianças e animais de estimação.</p></div>
+        <div class="motivo"><span class="motivo-ico">💛</span><h4>Capricho</h4><p>Cuido como se fosse minha própria casa.</p></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-<!-- CTA -->
-<section class="sec-cta">
-  <div class="cta-inner fade">
-    <div class="cta-badge">Respondo rapidinho!</div>
+  <!-- ===== CTA WHATSAPP ===== -->
+  <section id="cta">
+    <div class="badge">Respondo rapidinho!</div>
     <h2>Pronta para deixar sua<br>casa impecável ✨</h2>
     <p>Me chama no WhatsApp e combinamos o melhor horário pra você.</p>
     <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." class="btn-wa">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
       Chamar no WhatsApp
     </a>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="f-logo">Renata<span> Limpeza</span></div>
-  <p class="f-copy">© 2026 Renata Limpeza Residencial · Todos os direitos reservados</p>
-  <div class="f-links">
-    <a href="#servicos">Serviços</a>
-    <a href="#valores">Valores</a>
-    <a href="https://wa.me/5512992224658">WhatsApp</a>
-  </div>
-</footer>
+  <!-- ===== RODAPÉ ===== -->
+  <footer>
+    <div class="logo">Renata<span> Limpeza</span></div>
+    <p class="f-copy">© 2025 Renata Limpeza Residencial</p>
+    <div class="f-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#valores">Valores</a>
+      <a href="https://wa.me/5512992224658">WhatsApp</a>
+    </div>
+  </footer>
 
-<script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
-</script>
 </body>
 </html>
