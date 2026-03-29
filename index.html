@@ -4,520 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Renata Limpeza</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
   <style>
-    /* =====================
-       CORES E VARIÁVEIS
-    ===================== */
-    :root {
-      --bege:    #f5efe6;
-      --escuro:  #2c1f14;
-      --laranja: #c8845a;
-      --muted:   #9a7f6a;
-      --card:    #faf6f0;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+    body { background: #f5efe6; color: #2c1f14; }
 
-    /* =====================
-       BASE
-    ===================== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    /* NAV */
+    nav { background: #2c1f14; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
+    nav h1 { color: white; font-size: 1.3rem; }
+    nav a { background: #c8845a; color: white; padding: 10px 22px; border-radius: 100px; text-decoration: none; font-weight: bold; }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bege);
-      color: var(--escuro);
-    }
+    /* SEÇÕES */
+    section { padding: 60px 32px; max-width: 960px; margin: 0 auto; }
+    h2 { font-size: 2rem; margin-bottom: 8px; }
+    .sub { color: #9a7f6a; margin-bottom: 40px; }
 
-    /* =====================
-       NAVEGAÇÃO (topo)
-    ===================== */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(245, 239, 230, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(200, 132, 90, 0.2);
-      padding: 16px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    /* HERO */
+    .hero { text-align: center; padding: 80px 32px; }
+    .hero h2 { font-size: 2.8rem; }
+    .hero p { color: #9a7f6a; margin: 16px auto 32px; max-width: 480px; line-height: 1.7; }
+    .btn { display: inline-block; background: #2c1f14; color: white; padding: 14px 32px; border-radius: 100px; text-decoration: none; font-weight: bold; }
+    .btn:hover { background: #c8845a; }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--escuro);
-    }
-    .logo span { color: var(--laranja); font-style: italic; }
+    /* GRID */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: white; border-radius: 16px; padding: 28px 22px; border: 1px solid #e8ddd0; }
+    .card span { font-size: 2rem; display: block; margin-bottom: 12px; }
+    .card h3 { margin-bottom: 6px; }
+    .card p { color: #9a7f6a; font-size: 0.85rem; line-height: 1.6; }
 
-    .nav-btn {
-      background: var(--laranja);
-      color: white;
-      text-decoration: none;
-      padding: 10px 22px;
-      border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    .nav-btn:hover { background: var(--escuro); }
+    /* PREÇOS */
+    #valores { background: #2c1f14; max-width: 100%; padding: 60px 32px; }
+    #valores > * { max-width: 960px; margin-left: auto; margin-right: auto; }
+    #valores h2, #valores .sub { color: white; }
+    .p-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px 24px; color: white; }
+    .p-card.top { background: #c8845a; border-color: #c8845a; }
+    .preco { font-size: 2.5rem; font-weight: bold; color: #e0a882; margin: 8px 0 4px; }
+    .p-card.top .preco { color: white; }
+    .p-card ul { list-style: none; margin: 16px 0 24px; }
+    .p-card ul li { padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    .p-card ul li::before { content: "✓ "; color: #e0a882; }
+    .p-btn { display: block; text-align: center; padding: 12px; border-radius: 100px; border: 1.5px solid rgba(200,132,90,0.5); color: #e0a882; text-decoration: none; font-weight: bold; }
+    .p-btn:hover { background: #c8845a; color: white; border-color: #c8845a; }
+    .p-card.top .p-btn { background: #2c1f14; border-color: #2c1f14; color: white; }
 
-    /* =====================
-       HERO (seção principal)
-    ===================== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-    }
+    /* CTA */
+    .cta { background: #c8845a; text-align: center; padding: 80px 32px; }
+    .cta h2 { color: white; font-size: 2.2rem; margin-bottom: 12px; }
+    .cta p { color: rgba(255,255,255,0.8); margin-bottom: 32px; }
+    .cta a { background: #2c1f14; color: white; padding: 16px 40px; border-radius: 100px; text-decoration: none; font-weight: bold; font-size: 1rem; }
+    .cta a:hover { background: white; color: #c8845a; }
 
-    .hero-tag {
-      background: var(--card);
-      border: 1px solid rgba(200,132,90,0.3);
-      color: var(--laranja);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 8px 20px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .hero h1 em { color: var(--laranja); font-style: italic; }
-
-    .hero p {
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 500px;
-      margin-bottom: 40px;
-      font-weight: 300;
-    }
-
-    /* Botão principal */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--escuro);
-      color: white;
-      text-decoration: none;
-      padding: 16px 36px;
-      border-radius: 100px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    .btn:hover { background: var(--laranja); transform: translateY(-2px); }
-
-    /* Estatísticas embaixo do hero */
-    .stats {
-      display: flex;
-      gap: 0;
-      margin-top: 60px;
-      background: var(--card);
-      border: 1px solid rgba(200,132,90,0.15);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .stat {
-      padding: 20px 40px;
-      text-align: center;
-      border-right: 1px solid rgba(200,132,90,0.15);
-    }
-    .stat:last-child { border-right: none; }
-    .stat-n {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--laranja);
-    }
-    .stat-l {
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 4px;
-    }
-
-    /* =====================
-       SEÇÕES (estrutura geral)
-    ===================== */
-    section {
-      padding: 90px 40px;
-    }
-
-    .sec-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--laranja);
-      margin-bottom: 12px;
-    }
-
-    .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      margin-bottom: 48px;
-      line-height: 1.2;
-    }
-    .sec-title span { color: var(--laranja); font-style: italic; }
-
-    /* =====================
-       SERVIÇOS
-    ===================== */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(200,132,90,0.12);
-      border-radius: 20px;
-      padding: 32px 26px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(44,31,20,0.1);
-    }
-
-    .card-ico { font-size: 2.2rem; margin-bottom: 16px; display: block; }
-    .card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-    }
-    .card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
-
-    /* =====================
-       PREÇOS
-    ===================== */
-    #valores { background: var(--escuro); }
-    #valores .sec-label { color: #e0a882; }
-    #valores .sec-title { color: white; }
-
-    .grid-3-pricing {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 960px;
-    }
-
-    .p-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 36px 28px;
-      position: relative;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .p-card:hover { border-color: rgba(200,132,90,0.5); transform: translateY(-4px); }
-
-    /* Card destaque */
-    .p-card.destaque {
-      background: var(--laranja);
-      border-color: var(--laranja);
-    }
-    .p-card.destaque .p-preco { color: white; }
-    .p-card.destaque .p-per,
-    .p-card.destaque .p-list li { color: rgba(255,255,255,0.85); }
-
-    .p-selo {
-      position: absolute;
-      top: -12px; left: 50%; transform: translateX(-50%);
-      background: var(--escuro);
-      color: #e0a882;
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 4px 16px; border-radius: 100px;
-      white-space: nowrap;
-    }
-
-    .p-nome {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; color: white; margin-bottom: 20px;
-    }
-    .p-preco {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem; font-weight: 700;
-      color: #e0a882; line-height: 1;
-    }
-    .p-per { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
-
-    .p-list { list-style: none; margin-bottom: 28px; }
-    .p-list li {
-      font-size: 0.84rem; font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .p-list li::before { content: '✓'; color: #e0a882; font-weight: 700; }
-
-    .p-btn {
-      display: block; text-align: center; text-decoration: none;
-      padding: 13px; border-radius: 100px;
-      font-size: 0.85rem; font-weight: 600;
-      border: 1.5px solid rgba(200,132,90,0.4);
-      color: #e0a882; transition: all 0.3s;
-    }
-    .p-btn:hover { background: var(--laranja); border-color: var(--laranja); color: white; }
-    .p-card.destaque .p-btn { background: var(--escuro); border-color: var(--escuro); color: white; }
-
-    .p-nota {
-      margin-top: 40px;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.3);
-      font-style: italic;
-      text-align: center;
-    }
-
-    /* =====================
-       POR QUÊ ME ESCOLHER
-    ===================== */
-    #porque { background: #ede3d6; }
-
-    .porque-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center;
-    }
-
-    .porque-texto p {
-      font-size: 0.95rem; color: var(--muted); line-height: 1.8;
-      font-weight: 300; margin: 16px 0 32px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .motivo {
-      background: var(--card);
-      border: 1px solid rgba(200,132,90,0.12);
-      border-radius: 16px;
-      padding: 24px 20px;
-      transition: all 0.3s;
-    }
-    .motivo:hover { transform: translateY(-4px); border-color: rgba(200,132,90,0.4); }
-    .motivo-ico { font-size: 1.6rem; margin-bottom: 10px; display: block; }
-    .motivo h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 6px; }
-    .motivo p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
-
-    /* =====================
-       CTA (chamada final)
-    ===================== */
-    #cta {
-      background: var(--laranja);
-      text-align: center;
-      padding: 90px 40px;
-    }
-
-    #cta .badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      color: white; font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 6px 18px; border-radius: 100px; margin-bottom: 20px;
-    }
-
-    #cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      color: white; margin-bottom: 14px;
-    }
-
-    #cta p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 40px; font-weight: 300; }
-
-    .btn-wa {
-      display: inline-flex; align-items: center; gap: 12px;
-      background: var(--escuro); color: white;
-      text-decoration: none; padding: 18px 44px;
-      border-radius: 100px; font-size: 0.95rem; font-weight: 600;
-      transition: all 0.3s;
-    }
-    .btn-wa:hover { background: white; color: var(--laranja); transform: translateY(-3px); }
-    .btn-wa svg { width: 22px; height: 22px; fill: currentColor; }
-
-    /* =====================
-       RODAPÉ
-    ===================== */
-    footer {
-      background: var(--escuro);
-      padding: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      border-top: 1px solid rgba(200,132,90,0.15);
-    }
-    footer .logo { font-size: 1.2rem; }
-    .f-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
-    .f-links { display: flex; gap: 20px; }
-    .f-links a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.78rem; transition: color 0.3s; }
-    .f-links a:hover { color: #e0a882; }
-
-    /* =====================
-       MOBILE
-    ===================== */
-    @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      section { padding: 70px 20px; }
-      .grid-3, .grid-3-pricing, .porque-wrap { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr 1fr; }
-      .stats { flex-direction: column; }
-      .stat { border-right: none; border-bottom: 1px solid rgba(200,132,90,0.15); }
-      footer { flex-direction: column; text-align: center; }
-      .f-links { justify-content: center; }
-    }
+    /* MOBILE */
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-  <!-- ===== NAVEGAÇÃO ===== -->
-  <nav>
-    <div class="logo">Renata<span> Limpeza</span></div>
-    <a href="https://wa.me/5512992224658" class="nav-btn">📱 WhatsApp</a>
-  </nav>
+<nav>
+  <h1>Renata Limpeza</h1>
+  <a href="https://wa.me/5512992224658">WhatsApp</a>
+</nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero-tag">🏡 Limpeza Residencial Profissional</div>
-    <h1>Sua casa sempre<br><em>limpa e cheirosa</em></h1>
-    <p>Cuidado, capricho e atenção em cada cantinho. Você aproveita a vida — eu cuido da limpeza.</p>
-    <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." class="btn">💬 Pedir Orçamento</a>
-    <div class="stats">
-      <div class="stat"><div class="stat-n">5★</div><div class="stat-l">Avaliação</div></div>
-      <div class="stat"><div class="stat-n">+50</div><div class="stat-l">Clientes</div></div>
-      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Satisfação</div></div>
-    </div>
-  </section>
+<div class="hero">
+  <h2>Sua casa sempre limpa ✨</h2>
+  <p>Cuidado e capricho em cada cantinho. Você aproveita a vida — eu cuido da limpeza.</p>
+  <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Quero%20um%20orçamento." class="btn">💬 Pedir Orçamento</a>
+</div>
 
-  <!-- ===== SERVIÇOS ===== -->
-  <section id="servicos">
-    <p class="sec-label">O que ofereço</p>
-    <h2 class="sec-title">Serviços feitos com <span>muito carinho</span></h2>
-    <div class="grid-3">
-      <div class="card"><span class="card-ico">🧹</span><h3>Limpeza Geral</h3><p>Sala, quartos, cozinha e banheiros com atenção total a cada detalhe.</p></div>
-      <div class="card"><span class="card-ico">✨</span><h3>Limpeza Fina</h3><p>Rodapés, cima de armários e superfícies que exigem cuidado extra.</p></div>
-      <div class="card"><span class="card-ico">🚿</span><h3>Banheiros e Cozinha</h3><p>Higienização profunda para eliminar gordura, fungos e bactérias.</p></div>
-      <div class="card"><span class="card-ico">🪟</span><h3>Vidros e Janelas</h3><p>Vidros internos e externos brilhando, deixando sua casa mais iluminada.</p></div>
-      <div class="card"><span class="card-ico">🗂️</span><h3>Organização</h3><p>Armários e espaços organizados para um ambiente mais agradável.</p></div>
-      <div class="card"><span class="card-ico">📅</span><h3>Visitas Semanais</h3><p>Manutenção regular semanal ou quinzenal para sua casa sempre em ordem.</p></div>
-    </div>
-  </section>
+<section id="servicos">
+  <h2>Serviços</h2>
+  <p class="sub">Tudo que sua casa precisa</p>
+  <div class="grid">
+    <div class="card"><span>🧹</span><h3>Limpeza Geral</h3><p>Sala, quartos, cozinha e banheiros com atenção total.</p></div>
+    <div class="card"><span>✨</span><h3>Limpeza Fina</h3><p>Rodapés, armários e superfícies com cuidado extra.</p></div>
+    <div class="card"><span>🪟</span><h3>Vidros e Janelas</h3><p>Vidros brilhando, casa mais iluminada.</p></div>
+    <div class="card"><span>🚿</span><h3>Banheiros</h3><p>Higienização profunda contra gordura e fungos.</p></div>
+    <div class="card"><span>🗂️</span><h3>Organização</h3><p>Armários organizados para um ambiente agradável.</p></div>
+    <div class="card"><span>📅</span><h3>Visitas Semanais</h3><p>Manutenção regular semanal ou quinzenal.</p></div>
+  </div>
+</section>
 
-  <!-- ===== PREÇOS ===== -->
-  <section id="valores">
-    <p class="sec-label">Investimento</p>
-    <h2 class="sec-title">Valores <span>acessíveis</span> e transparentes</h2>
-    <div class="grid-3-pricing">
-
+<div id="valores">
+  <section>
+    <h2>Valores</h2>
+    <p class="sub">Preços acessíveis e transparentes</p>
+    <div class="grid">
       <div class="p-card">
-        <p class="p-nome">Diária Simples</p>
-        <div class="p-preco">R$undefined</div>
-        <p class="p-per">por diária · até 6 horas</p>
-        <ul class="p-list">
-          <li>Até 2 quartos</li>
-          <li>1 banheiro completo</li>
-          <li>Sala e cozinha</li>
-          <li>Varredura e limpeza geral</li>
-        </ul>
-        <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Quero%20a%20diária%20simples." class="p-btn">Contratar</a>
+        <h3>Diária Simples</h3>
+        <div class="preco">R$150</div>
+        <small style="color:rgba(255,255,255,0.4)">até 6 horas</small>
+        <ul><li>Até 2 quartos</li><li>1 banheiro</li><li>Sala e cozinha</li></ul>
+        <a href="https://wa.me/5512992224658?text=Quero%20a%20diária%20simples." class="p-btn">Contratar</a>
       </div>
-
-      <div class="p-card destaque">
-        <span class="p-selo">⭐ Mais Pedido</span>
-        <p class="p-nome">Limpeza Completa</p>
-        <div class="p-preco">R$undefined</div>
-        <p class="p-per">por diária · até 8 horas</p>
-        <ul class="p-list">
-          <li>Casa completa</li>
-          <li>Todos os banheiros</li>
-          <li>Vidros e janelas</li>
-          <li>Varanda e área de serviço</li>
-          <li>Rodapés e detalhes</li>
-        </ul>
-        <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Quero%20a%20limpeza%20completa." class="p-btn">Contratar</a>
+      <div class="p-card top">
+        <h3>Limpeza Completa ⭐</h3>
+        <div class="preco">R$220</div>
+        <small style="color:rgba(255,255,255,0.7)">até 8 horas</small>
+        <ul><li>Casa completa</li><li>Todos os banheiros</li><li>Vidros e janelas</li><li>Varanda e área de serviço</li></ul>
+        <a href="https://wa.me/5512992224658?text=Quero%20a%20limpeza%20completa." class="p-btn">Contratar</a>
       </div>
-
       <div class="p-card">
-        <p class="p-nome">Plano Mensal</p>
-        <div class="p-preco">R$undefined</div>
-        <p class="p-per">4 visitas por mês</p>
-        <ul class="p-list">
-          <li>Frequência semanal</li>
-          <li>Prioridade no agendamento</li>
-          <li>Limpeza completa padrão</li>
-          <li>Economia garantida</li>
-        </ul>
-        <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Quero%20o%20plano%20mensal." class="p-btn">Contratar</a>
-      </div>
-
-    </div>
-    <p class="p-nota">💬 Preços podem variar conforme tamanho do imóvel. Me chama para um orçamento personalizado!</p>
-  </section>
-
-  <!-- ===== POR QUÊ ME ESCOLHER ===== -->
-  <section id="porque">
-    <div class="porque-wrap">
-      <div class="porque-texto">
-        <p class="sec-label">Por que me escolher</p>
-        <h2 class="sec-title">Confiança e <span>capricho</span> em cada visita</h2>
-        <p>Trabalho com dedicação, pontualidade e respeito pela sua casa e família. Cada ambiente recebe atenção personalizada para o melhor resultado.</p>
-        <a href="https://wa.me/5512992224658" class="btn">Falar no WhatsApp</a>
-      </div>
-      <div class="grid-2">
-        <div class="motivo"><span class="motivo-ico">⏰</span><h4>Pontualidade</h4><p>Sempre cumpro os horários combinados.</p></div>
-        <div class="motivo"><span class="motivo-ico">🛡️</span><h4>Confiança</h4><p>Discrição e respeito em cada cantinho.</p></div>
-        <div class="motivo"><span class="motivo-ico">🧴</span><h4>Produtos Seguros</h4><p>Seguros para crianças e animais de estimação.</p></div>
-        <div class="motivo"><span class="motivo-ico">💛</span><h4>Capricho</h4><p>Cuido como se fosse minha própria casa.</p></div>
+        <h3>Plano Mensal</h3>
+        <div class="preco">R$350</div>
+        <small style="color:rgba(255,255,255,0.4)">4 visitas/mês</small>
+        <ul><li>Frequência semanal</li><li>Prioridade no agendamento</li><li>Economia garantida</li></ul>
+        <a href="https://wa.me/5512992224658?text=Quero%20o%20plano%20mensal." class="p-btn">Contratar</a>
       </div>
     </div>
   </section>
+</div>
 
-  <!-- ===== CTA WHATSAPP ===== -->
-  <section id="cta">
-    <div class="badge">Respondo rapidinho!</div>
-    <h2>Pronta para deixar sua<br>casa impecável ✨</h2>
-    <p>Me chama no WhatsApp e combinamos o melhor horário pra você.</p>
-    <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." class="btn-wa">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      Chamar no WhatsApp
-    </a>
-  </section>
-
-  <!-- ===== RODAPÉ ===== -->
-  <footer>
-    <div class="logo">Renata<span> Limpeza</span></div>
-    <p class="f-copy">© 2025 Renata Limpeza Residencial</p>
-    <div class="f-links">
-      <a href="#servicos">Serviços</a>
-      <a href="#valores">Valores</a>
-      <a href="https://wa.me/5512992224658">WhatsApp</a>
-    </div>
-  </footer>
+<div class="cta">
+  <h2>Vamos agendar? 🏡</h2>
+  <p>Me chama no WhatsApp e combinamos o melhor horário pra você.</p>
+  <a href="https://wa.me/5512992224658?text=Olá%20Renata!%20Vim%20pelo%20site%20e%20quero%20um%20orçamento.">Chamar no WhatsApp</a>
+</div>
 
 </body>
 </html>
